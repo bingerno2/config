@@ -1,3 +1,105 @@
 from: dev-environment-3.7
 userInfo: 
     nikeName: zhangsan1.0
+ 
+#mq exchange、routerKey、queue配置
+mqconfig: 
+  #导入、导出
+  ioexecutor: 
+    import: 
+      exchangeName: poiImportExchange
+      exchange: 
+        car: 
+          routerKey: poiImport.carImport
+          queueName: poiImportCarQueue
+        driver: 
+          routerKey: poiImport.driverImport
+          queueName: poiImportDriverQueue
+        model: 
+          routerKey: poiImport.modelImport
+          queueName: poiImportModelQueue
+        motorcade: 
+          routerKey: poiImport.motorcadeImport
+          queueName: poiImportMotorcadeQueue
+    export: 
+        exchangeName: poiExportExchange
+        exchange: 
+          car: 
+            routerKey: poiExport.carExport
+            queueName: poiExportCarQueue
+          driver: 
+            routerKey: poiExport.driverExport
+            queueName: poiExportDriverQueue
+          model: 
+            routerKey: poiExport.modelExport
+            queueName: poiExportModelQueue
+          motorcade: 
+            routerKey: poiExport.motorcadeExport
+            queueName: poiExportMotorcadeQueue
+          order: 
+            routerKey: poiExport.orderExport
+            queueName: poiExportOrderQueue
+          appUser: 
+            routerKey: poiExport.appUserExport
+            queueName: poiExportAppUserQueue
+  #邮件发送
+  email: 
+    send: 
+      exchangeName: mailSendExchange
+      exchange: 
+          routerKey: mailSendRouterKey
+          queueName: mailSendQueue
+  #APP
+  appMsg: 
+    send:
+      exchangeName: app.exchange
+      exchange:
+        routerKey: message
+        queueName: app.message
+  appCustom:
+    send:
+      exchangeName: app.exchange
+      exchange:
+        routerKey: custom
+        queueName: app.custom
+  #死信
+  deadLine: 
+    exchangeName: deadExchange001
+    exchange: 
+      routerKey: deadKey
+      queueName: deadQueue001
+  #自动派单
+  autoDispatch: 
+    exchangeName: generalExchange001
+    general: 
+      routerKey: autoDispatch.General.*
+      queueName: generalQueue001
+    vip: 
+      routerKey: autoDispatch.Vip.*
+      queueName: vipQueue001
+
+      
+#OSS配置
+aliyun: 
+  endpoint: oss-cn-shanghai.aliyuncs.com 
+  accessKeyId: LTAI3QzZ9n9MCOxi 
+  accessKeySecret:  fnyaUaL4CGG9CAuUMlqeolGYCLjO7B 
+  bucketName: jschuxing-storage-test 
+  urlPrefix:  http://jschuxing-storage-test.oss-cn-shanghai.aliyuncs.com/
+#图片保存地址
+img: 
+  path: 
+    urlReflect: ${aliyun.urlPrefix}chuxing/img
+    url: chuxing/img
+    model: /model
+    driver: /driver
+    appuser: /appuser
+##导入导出EXCEL文件保存地址
+excel: 
+  path: 
+    urlReflect: ${aliyun.urlPrefix}chuxing/iofile
+    url: chuxing/iofile
+    importOriginal: /import/original
+    importDestination: /import/destination
+    exportOriginal: /export/original
+    exportDestination: /export/destination
