@@ -1,1 +1,3 @@
 from: dev-environment-3.5
+userInfo: 
+    nikeName: zhangsan
