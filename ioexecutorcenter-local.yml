@@ -4,6 +4,12 @@ userInfo:
  
 #mq exchange、routerKey、queue配置
 mqconfig: 
+  aliyun: 
+      endpoint: oss-cn-shanghai.aliyuncs.com 
+      accessKeyId: LTAI3QzZ9n9MCOxi 
+      accessKeySecret:  fnyaUaL4CGG9CAuUMlqeolGYCLjO7B 
+      bucketName: jschuxing-storage-test 
+      urlPrefix:  http://jschuxing-storage-test.oss-cn-shanghai.aliyuncs.com/
   #导入、导出
   ioexecutor: 
     import: 
