@@ -104,7 +104,7 @@ img:
 excel: 
   path: 
     urlReflect: ${aliyun.urlPrefix}chuxing/iofile
-    url: chuxing/iofilesssss
+    url: chuxing/iofilemmmmmm
     importOriginal: /import/original
     importDestination: /import/destination
     exportOriginal: /export/original
